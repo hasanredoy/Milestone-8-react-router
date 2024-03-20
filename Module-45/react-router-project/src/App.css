@@ -1,0 +1,20 @@
+
+ul{
+  font-size: 25px;
+  font: bold ;
+  color: black;
+  text-decoration: none;
+  
+}
+ul>a{
+  font-size: 25px;
+  font: bold ;
+  color: black;
+  text-decoration: none;
+  padding: 0 15px;
+}
+
+h1{
+  font: caption;
+  font-size: 30px;
+}

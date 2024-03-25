@@ -19,7 +19,7 @@ const Nav = () => {
   console.log(them);
   return (
 
-    <div className="navbar bg-base-200 shadow-lg my-0 container mx-auto rounded-s-xl ">
+    <div className="navbar bg-base-200 shadow-lg my-0  rounded-s-xl ">
       <div className="flex-1">
         <a className="btn btn-ghost text-secondary gap-0 text-2xl font-bold">Byte<span className="text-primary">Blaze</span></a>
       </div>

@@ -1,15 +1,25 @@
 import { useState } from "react";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 import { MdBookmarkAdd } from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
+import { deleteFromStorage, setInStorage } from "../LocalStorageFunctions/LocalStorage";
 const BlogsDetails = () => {
   const blog = useLoaderData()
   const [tabIndex , setTabIndex] = useState(0)
+ 
+  const handleBookmark =(id)=>{
+    // console.log(id);
+     setInStorage(id)
+    // deleteFromStorage(id)
+  }
+
   return (
     <div className="max-w-3xl px-6 py-16 mx-auto space-y-12">
       <article className="space-y-8">
         <div className="space-y-6">
-          <h1 className="text-4xl font-bold md:tracking-tight md:text-5xl">{blog.title}</h1>
+          <a href={blog.url} target="blank" className="text-4xl font-bold md:tracking-tight hover:underline md:text-5xl">{blog.title}</a>
           <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center ">
             <div className="flex items-center md:space-x-2">
               <img src={blog.user.profile_image} alt="" className="w-4 h-4 border rounded-full bg-gray-500 border-gray-700" />
@@ -40,7 +50,7 @@ const BlogsDetails = () => {
                 <span>Author</span>
               </Link>
               {/* bookmarks  */}
-              <button className=" ml-2 text-red-500 text-xl"><MdBookmarkAdd></MdBookmarkAdd></button>
+              <button onClick={()=>handleBookmark(blog)} className=" ml-2 text-red-500 text-4xl"><MdBookmarkAdd></MdBookmarkAdd></button>
             </div>
           </div>
         </div>
@@ -67,6 +77,7 @@ const BlogsDetails = () => {
           </ul>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

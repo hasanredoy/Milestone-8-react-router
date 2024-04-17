@@ -1,11 +1,14 @@
 import CustomHook from "../CustomHook/CustomHook";
-
+import { Helmet} from 'react-helmet-async';
 import Card from "../Card/Card";
 const Home = () => {
   const {data , loading }= CustomHook()
   console.log(data);
   return (
     <div>
+     <Helmet>
+      <title>Home</title>
+     </Helmet>
       {/* banner  */}
       <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
         <div className="hero-overlay bg-opacity-90"></div>
